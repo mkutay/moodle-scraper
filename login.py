@@ -48,11 +48,11 @@ def scraper_login():
     logintoken = "" # Logintoken'i buna kaydedecegiz
 
     # Giris ekranindan aldiklarimizi "arionline.html" dosyasina kaydediyoruz
-    f = open('arionline.html', 'wb')
+    f = open('.files/arionline.html', 'wb')
     f.write(contents)
     f.close
 
-    f = open('arionline.html', 'r')
+    f = open('.files/arionline.html', 'r')
     # Dosyaya kaydekttiklerimizden login token olana bakiyoruz ve logintoken'u aliyoruz
     line = f.readlines()
     for l in line:
@@ -83,7 +83,6 @@ def scraper_login():
     contents = contents.decode("utf-8")
     index = contents.find(check_string) # Sayfada giris yapip yapmadigimizi kontrol etmek icin kullandigimiz stringe bakiyoruz
     if index != -1: # Varsa buraya giriyor
-        print(f"We found '{check_string}' at index position : {index}")
+        print("Login succesfull")
     else: # Yoksa buraya giriyor
-        print(f"String '{check_string}' was not found! Maybe we did not login ?!")
-
+        print("Login unsuccesfull")
