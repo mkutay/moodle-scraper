@@ -19,4 +19,4 @@ names = tmp[0]
 links = tmp[1]
 
 for i in range(len(names)):
-    isHomework.isHomework(links[i], names[i])
+    isHomework.isHomework(links[i], names[i]) # Her ders icin odev var mi diye kontrol ediyor
