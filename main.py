@@ -14,7 +14,7 @@ login.scraper_login() # Yazdigimiz kodu cagriyoruz giris yapmasi icin
 
 ssl._create_default_https_context = ssl._create_unverified_context # Sertifika sorununu cozen sihirli satir
 
-tmp = findCourses.findCourses()
+tmp = findCourses.findCourses() # Ders ismini ve linkini aliyor
 names = tmp[0]
 links = tmp[1]
 
