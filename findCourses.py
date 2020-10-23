@@ -60,4 +60,4 @@ def findCourses(): # Tum derslerin linkini ve adini buluyor
                 name = findCourseName(line, link, i)
                 names.append(name)
                 links.append(link)
-    return [names, links]
+    return [names, links] # returning them
