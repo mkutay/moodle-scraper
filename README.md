@@ -1,5 +1,5 @@
 # Bilisim-Projesi-Moodle-
 
-It doesn't work due to the site.
+Calisiyor! Sihirli satir sayesinde
 
 Site: https://arionline.ariokullari.k12.tr/
