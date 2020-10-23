@@ -31,7 +31,7 @@ def findHomeworkUrl(line, i):
             break
     return url
 
-def isHomework(url, name):
+def isHomework(url, name): # Odevi buluyor
     request = urllib.request.Request(url)
     response = urllib.request.urlopen(request)
     contents = response.read()
@@ -44,7 +44,6 @@ def isHomework(url, name):
     lines = f.readlines()
     for line in lines:
         if "Tamamlanmadı" in line:
-            print("tamamlanmadi var")
             for i in range(len(line)):
                 s = 't="Tamamlanmadı;'
                 flag = 1
