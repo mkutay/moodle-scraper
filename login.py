@@ -15,6 +15,10 @@ def scraper_login():
     username = '' # Kullanici adini girin
     password = '' # Sifreyi girin
 
+    if username == '' or password == '': # Bos olup olmadigini kontrol ediyor
+        print("Password and username can't be empty.")
+        return
+
     check_string = 'logout' # Bunu en sonda giris yapip yapmadigimiz kontrol etmek icin kullanacagiz
 
     headers = {
@@ -85,4 +89,4 @@ def scraper_login():
     if index != -1: # Varsa buraya giriyor
         print("Login succesfull! Yey!")
     else: # Yoksa buraya giriyor
-        print("Login unsuccesfull")
+        print("Login unsuccesfull! Unyey!")
