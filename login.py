@@ -1,3 +1,4 @@
+# coding=UTF-8
 import urllib.parse
 import urllib.request
 import http.cookiejar
