@@ -40,6 +40,8 @@ def isHomework(url, name): # Odevi buluyor
     f.write(contents)
     f.close
 
+    msgs = []
+
     f = open(".files/" + name + '.html', 'r')
     lines = f.readlines()
     for line in lines:
@@ -52,4 +54,6 @@ def isHomework(url, name): # Odevi buluyor
                         flag = 0
                         break
                 if flag == 1:
-                    print(name + " odevin var! Odevin adi:", findHomework(line, i) + ".", "Odevin Linki:", findHomeworkUrl(line, i) + ".")
+                    msgs.append(str(name) + " odevin var! Odevin adi: " + str(findHomework(line, i)) + ". " + "Odevin Linki: " + str(findHomeworkUrl(line, i) + "."))
+
+    return msgs
