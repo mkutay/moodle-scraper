@@ -6,6 +6,7 @@ import findCourses
 import isHomework
 import ssl
 import os
+import sendMail
 
 if os.path.isdir(".files/") == False:
     os.system("mkdir .files")
@@ -18,5 +19,27 @@ tmp = findCourses.findCourses() # Ders ismini ve linkini aliyor
 names = tmp[0]
 links = tmp[1]
 
+def is_ascii(s):
+    return all(ord(c) < 128 for c in s)
+
+if len(names) == 0 or len(links) == 0:
+    print("Odevin yok!! Ya da bir hata var.")
+    exit()
+
+main_message = ""
+
 for i in range(len(names)):
-    isHomework.isHomework(links[i], names[i]) # Her ders icin odev var mi diye kontrol ediyor
+    messages = isHomework.isHomework(links[i], names[i]) # Her ders icin odev var mi diye kontrol ediyor
+
+    message = ""
+
+    for i in range(len(messages)):
+        message += str(messages[i])
+        message += "\n"
+
+    if len(message) == 0:
+        continue
+
+    main_message += message
+
+sendMail.send_mail("Odevlerin var!", main_message)
