@@ -1,12 +1,12 @@
 import smtplib, ssl
 
-def send_mail(subject, message):
+def send_mail(subject, message, _recever_mail):
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.ehlo()
     server.starttls()
     server.ehlo()
 
-    recever_mail = '' # Kendi mailinizi koyunca o maile gonderiyor
+    recever_mail = _recever_mail # Kendi mailinizi koyunca o maile gonderiyor
     sender_mail = 'moodle.bot.ari@gmail.com'
     sender_password = 'M00dleB0t123'
 
