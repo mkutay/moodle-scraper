@@ -4,7 +4,7 @@ import urllib.request
 import http.cookiejar
 import ssl
 
-def scraper_login():
+def scraper_login(_username, _password):
     ssl._create_default_https_context = ssl._create_unverified_context # Sertifika sorununu cozen sihirli satir
 
     base_url = 'arionline.ariokullari.k12.tr' # Sitenin asil url'si
@@ -13,12 +13,12 @@ def scraper_login():
     # Bu da login'in oldugu yer
     authentication_url = https_base_url + '/login/index.php'
 
-    username = '' # Kullanici adini girin
-    password = '' # Sifreyi girin
+    username = _username # Kullanici adi
+    password = _password # Sifre
 
     if username == '' or password == '': # Bos olup olmadigini kontrol ediyor
         print("Password and username can't be empty.")
-        return
+        return -1
 
     check_string = 'logout' # Bunu en sonda giris yapip yapmadigimiz kontrol etmek icin kullanacagiz
 
