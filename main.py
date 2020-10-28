@@ -7,20 +7,33 @@ import isHomework
 import ssl
 import os
 import sendMail
+import json
+import sys
+
+args = sys.argv
 
 if os.path.isdir(".files/") == False:
     os.system("mkdir .files")
 
-login.scraper_login() # Yazdigimiz kodu cagriyoruz giris yapmasi icin
+if os.path.isfile(".moodle_bot_info.txt") == False or (len(args) > 1 and args[1] == '--login'):
+    username = input('Kullanici adin nedir? ')
+    password = input('Sifren nedir? ')
+    recever_mail = input('Mailin nedir? ')
+    info = {'username': username, 'password': password, 'recever_mail': recever_mail}
+    with open('.moodle_bot_info.txt', 'w') as outfile:
+        json.dump(info, outfile)
 
-ssl._create_default_https_context = ssl._create_unverified_context # Sertifika sorununu cozen sihirli satir
+info = {}
+
+with open('.moodle_bot_info.txt') as json_file:
+    info = json.load(json_file)
+
+if login.scraper_login(info['username'], info['password']) == -1: # Yazdigimiz kodu cagriyoruz giris yapmasi icin
+    exit()
 
 tmp = findCourses.findCourses() # Ders ismini ve linkini aliyor
 names = tmp[0]
 links = tmp[1]
-
-def is_ascii(s):
-    return all(ord(c) < 128 for c in s)
 
 if len(names) == 0 or len(links) == 0:
     print("Odevin yok!! Ya da bir hata var.")
@@ -42,4 +55,4 @@ for i in range(len(names)):
 
     main_message += message
 
-sendMail.send_mail("Odevlerin var!", main_message)
+sendMail.send_mail("Odevlerin var!", main_message, info['recever_mail'])
