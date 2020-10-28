@@ -5,6 +5,8 @@ It Works!!! Thanks to the magical line.
 It can login to the site and check that if there is any homework.
 And It can send mail.
 
+If you never entered login information it will ask for it.
+
 if you do 
 ```
 python3 main.py --login
