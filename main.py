@@ -9,6 +9,7 @@ import os
 import sendMail
 import json
 import sys
+import getTime
 
 args = sys.argv
 
@@ -47,7 +48,8 @@ for i in range(len(names)):
     message = ""
 
     for i in range(len(messages)):
-        message += str(messages[i])
+        remaining_time = getTime.remTime(messages[i][2], messages[i][1])
+        message += messages[i][0] + " odevin var! Odevin adi: " + messages[i][1] + ". Odevin icin kalan sure: " + remaining_time + ". Odevin linki: " + messages[i][2] + "."
         message += "\n"
 
     if len(message) == 0:
