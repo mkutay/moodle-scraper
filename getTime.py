@@ -10,13 +10,13 @@ def remTime(link, name):
     response = urllib.request.urlopen(request)
     contents = response.read()
 
-    f = open('.files/remTime.html', 'wb')
+    f = open('.files/' + name + '.html', 'wb')
     f.write(contents)
     f.close
 
     remTime = ""
 
-    f = open('.files/remTime.html', 'r')
+    f = open('.files/' + name + '.html', 'r')
     lines = f.readlines()
     for i in range(len(lines)):
         s = 'Kalan süre'
