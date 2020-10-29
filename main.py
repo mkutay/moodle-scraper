@@ -40,21 +40,25 @@ if len(names) == 0 or len(links) == 0:
     print("Odevin yok!! Ya da bir hata var.")
     exit()
 
-main_message = ""
+homeworks = []
 
 for i in range(len(names)):
     messages = isHomework.isHomework(links[i], names[i]) # Her ders icin odev var mi diye kontrol ediyor
 
-    message = ""
+    for j in range(len(messages)):
+        remaining_time = ""
+        if 'assign' in messages[j][2]:
+            remaining_time = getTime.remTime(messages[j][2], messages[j][1])
+        else:
+            remaining_time = "Sure yok"
+        homeworks.append(messages[j][0] + " odevin var! Odevin adi: " + messages[j][1] + ". Odevin icin kalan sure: " + remaining_time + ". Odevin linki: " + messages[j][2] + ".")
 
-    for i in range(len(messages)):
-        remaining_time = getTime.remTime(messages[i][2], messages[i][1])
-        message += messages[i][0] + " odevin var! Odevin adi: " + messages[i][1] + ". Odevin icin kalan sure: " + remaining_time + ". Odevin linki: " + messages[i][2] + "."
-        message += "\n"
+main_message = ""
 
-    if len(message) == 0:
-        continue
+for i in range(len(homeworks)):
+    main_message += homeworks[i]
+    main_message += '\n';
 
-    main_message += message
+print(main_message)
 
 sendMail.send_mail("Odevlerin var!", main_message, info['recever_mail'])
