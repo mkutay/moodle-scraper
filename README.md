@@ -18,3 +18,5 @@ python3 main.py --login
 It will forcefully get login information.
 
 Site: https://arionline.ariokullari.k12.tr/
+
+burn in hell burn to deah you suck lil hacker.
