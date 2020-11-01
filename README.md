@@ -1,5 +1,9 @@
 # Bilisim-Projesi-Moodle-
 
+Update: 
+The one that stole our mail, I will find you.
+We created a new mail and I am not going to put it in github.
+
 It Works!!! Thanks to the magical line.
 
 It can login to the site and check that if there is any homework.
