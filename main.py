@@ -20,7 +20,9 @@ if os.path.isfile(".moodle_bot_info.txt") == False or (len(args) > 1 and args[1]
     username = input('Kullanici adin nedir? ')
     password = input('Sifren nedir? ')
     recever_mail = input('Mailin nedir? ')
-    info = {'username': username, 'password': password, 'recever_mail': recever_mail}
+    sender_mail = input("Botun maili ne? ")
+    sender_pass = input("Botun sifresi ne? ")
+    info = {'username': username, 'password': password, 'recever_mail': recever_mail, 'sender_mail': sender_mail, 'sender_pass': sender_pass}
     with open('.moodle_bot_info.txt', 'w') as outfile:
         json.dump(info, outfile)
 
@@ -59,6 +61,4 @@ for i in range(len(homeworks)):
     main_message += homeworks[i]
     main_message += '\n';
 
-print(main_message)
-
-sendMail.send_mail("Odevlerin var!", main_message, info['recever_mail'])
+sendMail.send_mail("Odevlerin var!", main_message, info['recever_mail'], info['sender_mail'], info['sender_pass'])
