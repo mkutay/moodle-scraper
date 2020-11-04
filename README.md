@@ -1,7 +1,7 @@
 # Bilisim-Projesi-Moodle-
 
 Update: 
-The one that stole our mail, I will find you.
+The one that stole our mail, I will find you. Don't stole again.
 We created a new mail and I am not going to put it in github.
 
 It Works!!! Thanks to the magical line.
