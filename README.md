@@ -1,7 +1,7 @@
 # Bilisim-Projesi-Moodle-
 
 Update: 
-The one that stole our mail, I will find you.
+The one that stole our mail, I will find you. Don't steel again.
 We created a new mail and I am not going to put it in github.
 
 It Works!!! Thanks to the magical line.
@@ -18,3 +18,4 @@ python3 main.py --login
 It will forcefully get login information.
 
 Site: https://arionline.ariokullari.k12.tr/
+
