@@ -35,4 +35,5 @@ with open('.moodle_bot_info.json') as json_file:
 if login.scraper_login(info['username'], info['password']) == -1: # Yazdigimiz kodu cagriyoruz giris yapmasi icin
     exit()
 
-sendHomeworkMail.sendHomework(info)
+if '--sendAll' in args:
+    sendHomeworkMail.sendHomework(info)
