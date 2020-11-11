@@ -17,5 +17,10 @@ python3 main.py --login
 ```
 It will forcefully get login information.
 
+```
+python3 main.py --sendAll
+```
+It will send all homeworks
+
 Site: https://arionline.ariokullari.k12.tr/
 
