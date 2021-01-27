@@ -22,5 +22,10 @@ python3 main.py --sendAll
 ```
 It will send all homeworks
 
+```
+python3 main.py --check
+```
+This code will check if there is new homeworks.
+
 Site: https://arionline.ariokullari.k12.tr/
 
