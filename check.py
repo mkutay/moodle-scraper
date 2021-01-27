@@ -1,5 +1,4 @@
 import os
-import getDesc
 import os.path
 import sendMail
 
