@@ -10,14 +10,15 @@ import sendMail
 import json
 import sys
 import getTime
-import sendHomeworkMail
+import getHomeworks
+import check
 
 args = sys.argv
 
 if os.path.isdir(".files/") == False:
     os.system("mkdir .files")
 
-if os.path.isfile(".moodle_bot_info.json") == False or (len(args) > 1 and args[1] == '--login'):
+if os.path.isfile(".moodle_bot_info.json") == False or '--login' in args:
     username = input('Kullanici adin nedir? ')
     password = input('Sifren nedir? ')
     recever_mail = input('Mailin nedir? ')
@@ -35,5 +36,22 @@ with open('.moodle_bot_info.json') as json_file:
 if login.scraper_login(info['username'], info['password']) == -1: # Yazdigimiz kodu cagriyoruz giris yapmasi icin
     exit()
 
+homeworks = getHomeworks.sendHomework(info)
+
+# print(homeworks)
+
 if '--sendAll' in args:
-    sendHomeworkMail.sendHomework(info)
+    main_message = ""
+    for i in range(len(homeworks)):
+        main_message += homeworks[i]["className"] + "dersinde odevin var. " + "Odevin adi " + homeworks[i]["homeworkName"] + ". Odevin icin Kalan sure " + homeworks[i]["remTime"] + ". Odevin linki " + homeworks[i]["url"] + "."
+        main_message += "\n"
+    sendMail.send_mail("Odevlerin var!",
+                       main_message,
+                       info['recever_mail'],
+                       info['sender_mail'],
+                       info['sender_pass'])
+
+if '--check' in args:
+    check.check(homeworks, info)
+
+# if '--timerCheck' in args:

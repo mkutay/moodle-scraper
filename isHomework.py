@@ -54,6 +54,6 @@ def isHomework(url, name): # Odevi buluyor
                         flag = 0
                         break
                 if flag == 1:
-                    msgs.append(str(name) + " odevin var! Odevin adi: " + str(findHomework(line, i)) + ". " + "Odevin Linki: " + str(findHomeworkUrl(line, i) + "."))
+                    msgs.append([name, findHomework(line, i), findHomeworkUrl(line, i)]);
 
     return msgs
