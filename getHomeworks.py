@@ -2,14 +2,21 @@ import findCourses
 import getTime
 import sendMail
 import isHomework
+import os
 
-def sendHomework(info):
+def sendHomework(info, args):
     tmp = findCourses.findCourses() # Ders ismini ve linkini aliyor
     names = tmp[0]
     links = tmp[1]
 
+    argss = ""
+    for i in range(len(args)):
+        argss += args[i] + " "
+
     if len(names) == 0 or len(links) == 0:
-        print("Odevin yok!! Ya da bir hata var.")
+        # print("Odevin yok!! Ya da bir hata var.")
+        print("Calismadi bastan aliyorum")
+        os.system("python3 " + argss)
         exit()
 
     homeworks = []
