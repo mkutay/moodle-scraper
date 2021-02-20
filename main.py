@@ -12,6 +12,7 @@ import sys
 import getTime
 import getHomeworks
 import check
+import htmlOut
 
 args = sys.argv
 
@@ -45,6 +46,7 @@ if '--sendAll' in args:
     for i in range(len(homeworks)):
         main_message += homeworks[i]["className"] + "dersinde odevin var. " + "Odevin adi " + homeworks[i]["homeworkName"] + ". Odevin icin Kalan sure " + homeworks[i]["remTime"] + ". Odevin linki " + homeworks[i]["url"] + "."
         main_message += "\n"
+    htmlOut.out(main_message)
     sendMail.send_mail("Odevlerin var!",
                        main_message,
                        info['recever_mail'],
