@@ -43,10 +43,12 @@ homeworks = getHomeworks.sendHomework(info, args)
 
 if '--sendAll' in args:
     main_message = ""
+    main_message2 = []
     for i in range(len(homeworks)):
-        main_message += homeworks[i]["className"] + "dersinde odevin var. " + "Odevin adi " + homeworks[i]["homeworkName"] + ". Odevin icin Kalan sure " + homeworks[i]["remTime"] + ". Odevin linki " + homeworks[i]["url"] + "."
+        main_message2.append(homeworks[i]["className"] + " dersinde odevin var. " + "Odevin adi " + homeworks[i]["homeworkName"] + ". Odevin icin Kalan sure " + homeworks[i]["remTime"] + ". Odevin linki " + homeworks[i]["url"] + ".")
+        main_message += homeworks[i]["className"] + " dersinde odevin var. " + "Odevin adi " + homeworks[i]["homeworkName"] + ". Odevin icin Kalan sure " + homeworks[i]["remTime"] + ". Odevin linki " + homeworks[i]["url"] + "."
         main_message += "\n"
-    htmlOut.out(main_message)
+    htmlOut.out(main_message2)
     sendMail.send_mail("Odevlerin var!",
                        main_message,
                        info['recever_mail'],
