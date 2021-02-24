@@ -27,5 +27,8 @@ python3 main.py --check
 ```
 This code will check if there is new homeworks.
 
-Site: https://arionline.ariokullari.k12.tr/
+# os
+MacOS
+maybe linux
 
+Site: https://arionline.ariokullari.k12.tr/
