@@ -20,7 +20,7 @@ It will forcefully get login information.
 ```
 python3 main.py --sendAll
 ```
-It will send all homeworks
+It will send all homeworks and open a html file with all of the homeworks.
 
 ```
 python3 main.py --check
