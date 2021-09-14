@@ -35,6 +35,13 @@ def isHomework(url, name): # Odevi buluyor
     request = urllib.request.Request(url)
     response = urllib.request.urlopen(request)
     contents = response.read()
+    name2 = ""
+    for i in range(len(name)):
+        if name[i] == "/":
+            name2 += "b"
+        else:
+            name2 += name[i]
+    name = name2
 
     f = open(".files/" + name + ".html", 'wb')
     f.write(contents)
