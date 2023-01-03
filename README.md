@@ -1,5 +1,7 @@
 # Bilisim-Projesi-Moodle-
 
+IT DOES NOT WORK AT THE MOMENT (maybe later i will work on it)
+
 Update: 
 The one that stole our mail, I will find you. Don't steel again.
 We created a new mail and I am not going to put it in github.
